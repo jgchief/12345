@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<title>hide()</title>
+<style>
+span {
+	visibility : hidden;
+	color : blue;
+}
+a{
+  font-size:30px;
+  background-color:yellow;
+}
+ul{
+  border:20x solid pink;
+	list-style: none;
+}
+h3{
+  color:red;
+}
+#box{
+	border:1px solid green;
+  width:500px;
+	height:400px:
+	padding-left:20px;
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+function show() {
+	   var obj =document.getElementById("span");
+	   var style = window.getComputedStyle(obj);//Window.getComputedStyle() 메소드는 인자로 전달받은 요소의 모든 CSS 속성값을 담은 객체를 반환함
+	    var v = style.getPropertyValue("visibility");
+		if(v == "hidden")
+			obj.style.visibility = "visible";
+		else
+			obj.style.visibility = "hidden";
+	}
+</script>
+<script>
+	$(document).ready(function(){
+		$("p").click(function(){
+			$(this).hide();
+		});
+	});
+</script>
+</head>
+<body>
+	<h3>1. click me를 클릭하면 글자가 사라지도록 동작하도록 하기 위해<br>
+	jquery 로 작성하시오</h3><hr>
+	<p>click me</p>
+	<p>click me</p>
+	<p>click me</p>
+<h3>위의 예제처럼 적용되기 위한 소스는?</h3><hr>
+<ul>
+  &lt;p>click me&lt;/p><br>
+	&lt;p>click me&lt;/p><br>
+	&lt;p>click me&lt;/p><br>
+	<div id ="box">
+	<li>답<button onclick="show()">답확인</button></li>
+	<li><span id="span">
+		$(document).ready(function(){<br>
+	&nbsp;&nbsp;&nbsp;    $("p").click(function(){<br>
+	&nbsp;&nbsp;&nbsp;      $(this).hide();<br>
+	&nbsp;&nbsp;&nbsp;   });<br>
+	     &nbsp;&nbsp;&nbsp;);<br><br>
+							 </span></li></div>
+</ul><br>
+<a href ="index.html">home</a>
+</body>
+</html>
